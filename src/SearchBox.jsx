@@ -1930,6 +1930,7 @@ function SearchBox() {
   // Get API details from .env
   const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
   const API_URL = "https://api.openweathermap.org/data/2.5/weather";
+  const GEOCODING_API_URL = "https://api.openweathermap.org/geo/1.0/reverse";
 
   console.log("API KEY exists:", !!API_KEY);
   console.log("API URL:", API_URL);
@@ -2087,9 +2088,12 @@ function SearchBox() {
     const weatherData = await weatherResponse.json();
 
     // Reverse Geocoding API
+    // const locationResponse = await fetch(
+    //   `${import.meta.env.VITE_GEOCODING_API_URL}?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`
+    // );
     const locationResponse = await fetch(
-      `${import.meta.env.VITE_GEOCODING_API_URL}?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`
-    );
+  `${GEOCODING_API_URL}?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`
+);
 
     const locationData = await locationResponse.json();
 

@@ -1929,7 +1929,7 @@ function SearchBox() {
 
   // Get API details from .env
   const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
-  const API_URL = import.meta.env.VITE_WEATHER_API_URL;
+  const API_URL = "https://api.openweathermap.org/data/2.5/weather";
 
   console.log("API KEY exists:", !!API_KEY);
   console.log("API URL:", API_URL);

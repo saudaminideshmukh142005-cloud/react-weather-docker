@@ -9,6 +9,9 @@ RUN npm install
 
 COPY . .
 
+ARG VITE_WEATHER_API_KEY
+ENV VITE_WEATHER_API_KEY=$VITE_WEATHER_API_KEY
+
 RUN npm run build
 
 # Production stage
